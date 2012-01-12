@@ -1,20 +1,10 @@
-from google.appengine.ext import webapp
-from google.appengine.ext.webapp.util import run_wsgi_app
+import webapp2
 
-
-class MainPage(webapp.RequestHandler):
-    
+class MainPage(webapp2.RequestHandler):
     
     def get(self):
-        self.response.headers['Content-Type'] = 'text/plain'
-        self.response.out.write('Hello World 2!')
+        self.response.headers['Content-Type'] = 'text/html'
+        self.response.out.write('<h1><center>Welcome on SpoonTravel!</center></h1>')
 
-
-application = webapp.WSGIApplication([('/', MainPage)], debug=True)
-
-
-def main():
-    run_wsgi_app(application)
-
-if __name__ == "__main__":
-    main()
+app = webapp2.WSGIApplication([('/', MainPage)],
+                              debug=True)
