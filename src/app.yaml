@@ -9,4 +9,4 @@ handlers:
   static_files: static/images/favicon.ico
   upload: static/images/favicon.ico
 - url: /.*
-  script: helloworld.app
+  script: welcome.app
