@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="/css/main.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>The Spoon Travel</title>
+</head>
+<body>
+	<div align="center" style="">Welcome on SpoonTravel!</div>
+	<br/>{{message}}
+	<br/>
+	<center>
+		<h3>Add a new Spoon</h3>
+		<form action="/addNewSpoon" method="get">
+			<div>
+				<input type="submit" value="Add a new spoon">
+			</div>
+		</form>
+	</center>
+	<br />
+	<center>
+		<h3>Follow a Spoon</h3>
+		<form action="/followSpoon" method="post">
+			<div>
+				<input type="text" name="spoonNumber"></input>
+			</div>
+			<div>
+				<input type="submit" value="Follow this spoon">
+			</div>
+		</form>
+	</center>
+	<br />
+	<center>
+		<h3>Add a step to a spoon life</h3>
+		<form action="/addSpoonStep" method="post">
+			<div>
+				<input type="text" name="spoonNumber"></input>
+			</div>
+			<div>
+				<input type="submit" value="Add a step to this spoon life">
+			</div>
+		</form>
+	</center>
+	<br />
+</body>
+</html>

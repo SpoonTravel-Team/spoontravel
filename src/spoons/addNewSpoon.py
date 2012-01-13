@@ -27,6 +27,6 @@ class AddNewSpoon(webapp2.RequestHandler):
         #Responding
         self.response.out.write("""
             <center>You added a new spoon. Now mark the following message on your spoon : <br\>
-            <b>Look at this spoon's travel on <i>http://thespoontravel.appspot.com</i>. SpoonNumber: %s</b>
+            <b>Look at this spoon's travel on <i>http://thespoontravel.appspot.com</i>. SpoonNumber: %06d</b>
             </center>
             """ % spoon.spoonNumber())

@@ -8,5 +8,15 @@ handlers:
 - url: /favicon\.ico
   static_files: static/images/favicon.ico
   upload: static/images/favicon.ico
+- url: /css
+  static_dir: static/css
+- url: /templates
+  static_dir: static/templates
 - url: /.*
   script: welcome.app
+
+libraries:                                                                      
+- name: jinja2                                                                  
+  version: latest                                                               
+- name: markupsafe                                                              
+  version: latest
