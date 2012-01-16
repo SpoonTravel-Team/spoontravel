@@ -18,5 +18,5 @@ class AddNewSpoon(BaseHandler):
         spoon.put()
         
         #Responding
-        context = {'spoonNumber' : ("{:06d}").format(spoon.spoonNumber())}
+        context = {'spoonNumber' : spoon.spoonNumber()}
         self.render_response('newSpoonAdded.html', **context)

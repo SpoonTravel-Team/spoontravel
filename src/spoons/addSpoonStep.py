@@ -1,7 +1,10 @@
-import webapp2
+from BaseHandler import BaseHandler
+from spoons.model.Spoon import Spoon
 
-class AddSpoonStep(webapp2.RequestHandler):
+class AddSpoonStep(BaseHandler):
     
     def post(self):
-        self.response.headers['Content-Type'] = 'text/html'
-        self.response.out.write('<h1><center>Adding step to spoon '+self.request.get('spoonNumber')+'</center></h1><br\>')
+        spoonNumber = int(self.request.get('spoonNumber'))
+        spoon = Spoon.get_by_id(spoonNumber)
+        context = {'spoonNumber' : spoon.spoonNumber()}
+        self.render_response('addSpoonStep.html', **context)

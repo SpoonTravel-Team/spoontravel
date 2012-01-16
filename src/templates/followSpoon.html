@@ -6,6 +6,17 @@
 <title>The Spoon Travel</title>
 </head>
 <body>
-
+	<h1>
+		<center>Following spoon {{"{:06d}".format(spoonNumber)}}</center>
+	</h1>
+	<br />
+	<div>
+		<img src='/spoonImage?img_id={{spoonKey}}'></img>
+	</div>
+	<br />
+	<div>Comment: {{comment}}</div>
+	<br />
+	<div>Creation Date: {{"{:%d/%m/%Y}".format(creationDate)}}</div>
+	<br />
 </body>
 </html>
