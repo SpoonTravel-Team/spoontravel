@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="/css/main.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>The Spoon Travel</title>
+</head>
+<body>
+	<h1>
+		<center>Adding a new spoon</center>
+	</h1>
+	<br />
+	<form action="/addNewSpoon" method="post" enctype="multipart/form-data">
+		<div>
+			Comment:
+			<textarea name="comment" rows="3" cols="60"></textarea>
+		</div>
+		<div>
+			<label>Picture:</label>
+		</div>
+		<div>
+			<input type="file" name="img" />
+		</div>
+		<div>
+			<input type="submit" value="Add my spoon">
+		</div>
+	</form>
+</body>
+</html>

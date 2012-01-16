@@ -9,7 +9,7 @@ from BaseHandler import BaseHandler
 class Welcome(BaseHandler):
     
     def get(self):
-        context = {'message': 'toto'}
+        context = {}
         self.render_response('welcome.html', **context)
 
 config = {}
