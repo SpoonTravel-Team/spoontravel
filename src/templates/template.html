@@ -4,15 +4,18 @@
 {% block head %}{% endblock %}
 <link type="text/css" rel="stylesheet" href="/css/main.css" />
 <link type="text/css" rel="stylesheet" href="/css/960.gs.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>The Spoon Travel</title>
 </head>
 <body>
 	<div class="container container_12">
-		<div class="grid_12 title">
-			<img src="/images/spoon.png" height="60px" style="text-align: left;"/>
-			{% block title %}The Spoon Travel{%	endblock %}
-		</div>
+		<a href="/" class="titleLink">
+			<div class="grid_12 title">
+				<img src="/images/spoon.png" height="60px" style="text-align: left;" />
+				{% block title %}The Spoon Travel{% endblock %}
+			</div>
+		</a>
 		<div class='clear'></div>
 		{% block content %}{% endblock %}
 	</div>

@@ -1,5 +1,13 @@
-{% extends "template.html" %} {% block title %}Welcome on SpoonTravel!{%
-endblock title %} {% block content %}
+{% extends "template.html" %}
+
+{% block head %}
+<script type="text/javascript">
+	function toogleForm(className){
+		$('#'+className+'>div').toggle();
+	}
+</script>{%endblock head %}
+{% block title %}Welcome on SpoonTravel!{%endblock title %}
+{% block content %}
 <div class="grid_12">
 	<div class="bigImage">
 		<img alt="Big Image" src="/images/SpoonTravel.jpg" width="940px"
@@ -8,40 +16,44 @@ endblock title %} {% block content %}
 </div>
 <div class='clear'></div>
 <div class='grid_4 choosingBox'>
-	<div class='topChoosingBox '>
-		<img src="/images/spoon.png" />
-	</div>
-	<a href="/addNewSpoon" title="Add a new Spoon">Register a new Spoon</a>
+	<a href="/addNewSpoon" title="Add a new Spoon">
+		<div class='topChoosingBox '>
+			<img src="/images/spoon.png" />
+		</div>
+		Register a new Spoon
+	</a>
 </div>
-<div class='grid_4 choosingBox'>
-	<div class='topChoosingBox'>
+<div class='grid_4 choosingBox' id="followTheSpoon">
+	<div class='topChoosingBox '>
+		<img src="/images/spoon.png"  onmousedown="toogleForm('followTheSpoon')"/>
+	</div>
+	<div class='topChoosingBox'  style="display: none">
 		<form action="/followSpoon" method="post">
 			<div>
 				<input type="text" name="spoonNumber"></input>
 			</div>
 			<div>
-				<input type="submit" value="Follow this spoon">
+				<input class="button" type="submit" value="Follow this spoon">
 			</div>
 		</form>
 	</div>
-	<a href="/followSpoon" title="Follow a Spoon">Follow a Spoon</a>
+	<a title="Follow a Spoon" onmousedown="toogleForm('followTheSpoon')">Follow a Spoon</a>
 </div>
-<div class='grid_4 choosingBox'>
-	<div class='topChoosingBox' id="addSpoonImage">
-		<img src="/images/spoon.png" />
+<div class='grid_4 choosingBox' id="addSpoon">
+	<div class='topChoosingBox'>
+		<img src="/images/spoon.png" onmousedown="toogleForm('addSpoon')" />
 	</div>
-	<div class='topChoosingBox' id="addSpoonForm" hidden="true">
+	<div class='topChoosingBox' style="display: none">
 		<form action="/addSpoonStep" method="post">
 			<div>
 				<input type="text" name="spoonNumber"></input>
 			</div>
 			<div>
-				<input type="submit" value="Add a step to this spoon life">
+				<input class="button" type="submit" value="Add a step to this spoon life">
 			</div>
 		</form>
 	</div>
-	<a href="/addSpoonStep" title="Add a step to your spoon" onmouseover="showSpoonStep">Add a
-		spoon's step</a>
+	<a title="Add a step to your spoon" onmousedown="toogleForm('addSpoon')">Add a spoon's step</a>
 </div>
 <div class='clear'></div>
 {% endblock content %}
