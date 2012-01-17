@@ -1,6 +1,9 @@
 @CHARSET "ISO-8859-1";
-@import url(http://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Gruppo);
+@import url(http://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Gruppo|Ruluko);
 
+html {
+	font-family: 'Ruluko', sans-serif;
+}
 
 .title{
 	text-align: center;
@@ -13,10 +16,30 @@
 	text-decoration: none;
 }
 
+.subtitle {
+	text-align: center;
+	font-size: 28px;
+	margin-bottom: 10px;
+	font-family: 'Gruppo';
+}
+
 .bigImage img{
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
+	margin-bottom: 10px;
+}
+
+.bigText{
+	color: #444444;
+	background-color: #dedede;
+	text-shadow: #fff 0 1px 0;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
 	margin-bottom: 20px;
+	font-family: 'Ruluko', sans-serif;
+}
+.bigText p{
+	padding: 10px;
 }
 
 .choosingBox {
@@ -51,6 +74,16 @@
 
 .choosingBox:hover{background-position: 0 -180px;}
 
+.form {
+	color: #767676;
+	background-color: #d8d8de;
+	text-shadow: #fff 0 1px 0;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+}
+.form form {
+	margin: 10px;
+}
 
 #footer {
 	margin-top: 100px;
@@ -75,6 +108,7 @@
 /*------------------------------------------
 	Button
 ------------------------------------------*/
+
 .button {
    border: 1px solid #78838a;
    background: #95abba;
