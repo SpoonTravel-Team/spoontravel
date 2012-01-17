@@ -84,6 +84,23 @@ html {
 .form form {
 	margin: 10px;
 }
+.form p {
+	margin: 10px;
+	float: left;
+}
+
+.spoonImage {
+	vertical-align: middle;
+	text-align: center;
+}
+.spoonStepImage {
+	vertical-align: middle;
+	text-align: center;
+	margin-top: 20px;
+}
+.spoonStep {
+	margin-top: 20px;
+}
 
 #footer {
 	margin-top: 100px;

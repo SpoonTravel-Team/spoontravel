@@ -6,8 +6,6 @@ class Spoon(db.Model):
     comment = db.StringProperty(multiline=True)
     image_blob = db.BlobProperty()
     
-    
-    
     def spoonNumber(self):
         return self.key().id()
     

@@ -4,12 +4,19 @@ from BaseHandler import BaseHandler
 class FollowSpoon(BaseHandler):
     
     def post(self):
-        spoonNumber = int(self.request.get('spoonNumber'))
-        spoon = Spoon.get_by_id(spoonNumber)
+        try:
+            spoonNumber = int(self.request.get('spoonNumber'))
+        except ValueError :
+            context = {'error' : self.request.get('spoonNumber')+" is not a number !"}
+            self.render_response('error.html', **context)
+            return 
         
+        spoon = Spoon.get_by_id(spoonNumber)
+                
         context = {'spoonNumber' : spoon.spoonNumber(),
                    'spoonKey': spoon.key(),
                    'comment': spoon.comment,
-                   'creationDate': spoon.creationDate}
+                   'creationDate': spoon.creationDate,
+                   'spoonSteps' : spoon.spoonSteps}
         self.render_response('followSpoon.html', **context)
         

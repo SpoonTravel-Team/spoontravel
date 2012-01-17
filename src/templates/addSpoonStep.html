@@ -1,7 +1,36 @@
 {% extends "template.html" %}
 {% block content %}
-	<h1>
-		<center>Adding step to spoon {{("{:06d}").format(spoonNumber)}}</center>
-	</h1>
+	<div class="grid_12 subtitle">
+		Adding step to spoon {{("{:06d}").format(spoonNumber)}}
+	</div>
+	<div class='clear'></div>
+	<div class="grid_3">
+			<img src="/images/spoon.png" />
+	</div>
+	<div class="grid_9 form">
+		<form action="/addSpoonStep" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="spoonNumber" value="{{spoonNumber}}">
+			<div>
+				<label>Give some comments how you find this spoon, where... :</label><br/>
+				<textarea name="comment" rows="3" cols="60"></textarea>
+			</div>
+			<div>
+				<label>Where do you find it:</label>
+				<input type="text" name="place"/> 
+			</div>
+			<div>
+				<label>Give us your email to get update about this spoon:</label>
+				<input type="text" name="email"/> 
+			</div>
+			<div>
+				<label>Picture of you with the spoon:</label>
+				<input type="file" name="img" />
+			</div>
+			<div style="text-align: center; margin-top: 10px">
+				<input type="submit" value="Add my spoon" class="button" >
+			</div>
+		</form>
+	</div>
+	<div class='clear'></div>
 
 {% endblock content %}
