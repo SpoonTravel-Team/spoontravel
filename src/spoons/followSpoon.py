@@ -2,10 +2,7 @@ from spoons.model.Spoon import Spoon
 from BaseHandler import BaseHandler
 
 class FollowSpoon(BaseHandler):
-    
-    def post(self):
-        self.get(self)
-        
+            
     def get(self):
         try:
             spoonNumber = int(self.request.get('spoonNumber'))
