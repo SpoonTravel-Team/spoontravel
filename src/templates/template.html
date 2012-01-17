@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+{% block head %}{% endblock %}
+<link type="text/css" rel="stylesheet" href="/css/main.css" />
+<link type="text/css" rel="stylesheet" href="/css/960.gs.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>The Spoon Travel</title>
+</head>
+<body>
+	<div class="container container_12">
+		<div class="grid_12 title">
+			<img src="/images/spoon.png" height="60px" style="text-align: left;"/>
+			{% block title %}The Spoon Travel{%	endblock %}
+		</div>
+		<div class='clear'></div>
+		{% block content %}{% endblock %}
+	</div>
+	<div id="footer">
+		<div class="container container_12">
+			<div class="grid_12 title">
+				<div id="copyright">The Spoon Travel - All rights reserved</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

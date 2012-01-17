@@ -10,8 +10,8 @@ handlers:
   upload: static/images/favicon.ico
 - url: /css
   static_dir: static/css
-- url: /templates
-  static_dir: static/templates
+- url: /images
+  static_dir: static/images
 - url: /.*
   script: welcome.app
 

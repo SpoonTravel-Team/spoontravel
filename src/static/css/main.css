@@ -1,5 +1,119 @@
 @CHARSET "ISO-8859-1";
+@import url(http://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Gruppo);
 
-.center{
-	size: 40;
+
+.title{
+	text-align: center;
+	font-size: 40px;
+	font-family: 'IM Fell French Canon SC', serif;
+	margin-bottom: 20px;
 }
+
+.bigImage img{
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	margin-bottom: 20px;
+}
+
+.choosingBox {
+	height: 180px;
+	color: #767676;
+	background: #d8d8de url(/images/case.jpg);
+	text-shadow: #fff 0 1px 0;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	font-family: 'Gruppo', cursive;
+	font-size: 26px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.choosingBox a {
+	text-decoration: none;
+	color: #767676;
+}
+
+.topChoosingBox{
+	height: 130px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.choosingBox:hover{background-position: 0 -180px;}
+
+
+#footer {
+	margin-top: 100px;
+	border-top: 5px solid #C0C0C8;
+	background-color: #19191A;
+	padding: 20px 0;
+	float: left;
+	width: 100%;
+	min-width: 960px;
+	clear: both;
+	display: inline;
+	color: #565656;
+	height: 20px;
+}
+#footer #copyright{
+	font-size: 20px;
+	text-transform: uppercase;
+	font-family: monospace;
+}
+
+
+/*------------------------------------------
+	Product Blocks
+------------------------------------------*/
+
+.product-blocks{
+	float: left;
+	width: 100%;
+	margin-bottom:20px;
+}
+.product-blocks .group{
+	width: 300px;
+	height: 180px;
+	margin-left: 20px;
+	float: left;
+	display: inline;
+	text-align: center;
+	position: relative;
+}
+.product-blocks .group.empty{
+	background: url(/img/template/product_promo_null.gif);
+	text-indent: -9000px;
+}
+.product-blocks .group:first-child{margin-left: 0;}
+.product-blocks a.product{
+  height: 180px;
+	color: #767676;
+	display: block;
+	background: #d8d8de url(/img/template/product_promo_bg.jpg);
+	text-shadow: #fff 0 1px 0;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+}
+.product-blocks a.product:hover{background-position: 0 -180px;}
+.product-blocks a.product img{
+	widows: 300px;
+	height: 135px;
+	opacity: .9;
+	-webkit-transition: opacity .5s ease-out;
+}
+.product-blocks a.product:hover img{opacity: 1;}
+.product-blocks a.product:active img{
+	position: relative;
+	top: 1px;
+}
+.product-blocks a.product strong{
+	display: block;
+    color: #000;
+    height: 12px;
+    width: 300px;
+    text-indent: -9000px;
+    opacity: .8;
+    -webkit-transition: opacity .2s linear;
+}
+.product-blocks a.product:hover strong{opacity: 1;}
+.product-blocks br{display: none;}
