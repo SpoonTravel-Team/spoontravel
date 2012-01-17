@@ -1,7 +1,7 @@
 {% extends "template.html" %}
 {% block content %}
 	<div class="grid_12 subtitle">
-		The spoon {{"{:06d}".format(spoonNumber)}}
+		The spoon #{{"{:06d}".format(spoonNumber)}}
 	</div>
 	<div class='clear'></div>
 	<div class="grid_8 spoonImage">
@@ -15,7 +15,7 @@
 	</div>
 	
 	<div class='clear'></div>
-	<div class="grid_12 subtitle">
+	<div class="grid_12 subtitle separateALot">
 		The spoon's life
 	</div>
 	{% for step in spoonSteps %}

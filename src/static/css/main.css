@@ -98,10 +98,17 @@ html {
 	text-align: center;
 	margin-top: 20px;
 }
+
 .spoonStep {
 	margin-top: 20px;
 }
 
+.separate {
+	margin-top: 20px;
+}
+.separateALot {
+	margin-top: 60px;
+}
 #footer {
 	margin-top: 100px;
 	border-top: 5px solid #C0C0C8;
