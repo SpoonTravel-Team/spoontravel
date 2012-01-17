@@ -11,7 +11,7 @@ class AddSpoonStep(BaseHandler):
         try:
             spoonNumber = int(self.request.get('spoonNumber'))
         except ValueError :
-            context = {'error' : self.request.get('spoonNumber')+" is not a number !"}
+            context = {'error' : self.request.get('spoonNumber') + " is not a number !"}
             self.render_response('error.html', **context)
             return 
             
@@ -23,7 +23,7 @@ class AddSpoonStep(BaseHandler):
         try:
             spoonNumber = int(self.request.get('spoonNumber'))
         except ValueError :
-            context = {'error' : self.request.get('spoonNumber')+" is not a number !"}
+            context = {'error' : self.request.get('spoonNumber') + " is not a number !"}
             self.render_response('error.html', **context)
             return
         
@@ -33,19 +33,15 @@ class AddSpoonStep(BaseHandler):
         spoonStep = SpoonStep()
         spoonStep.comment = self.request.get('comment')
         spoonStep.place = self.request.get('place')
-        spoonStep.email = self.request.get('email')
+        if self.request.get('email') :
+            spoonStep.email = self.request.get('email')
         spoonStep.spoon = spoon
-        picture=self.request.get('img')
+        picture = self.request.get('img')
         if picture :
             resizedPicture = picture
-            if Image(picture).width>620 or Image(picture).height>400:
+            if Image(picture).width > 620 or Image(picture).height > 400:
                 resizedPicture = images.resize(picture, 620, 400)
             spoonStep.image_blob = db.Blob(resizedPicture)
         spoonStep.put()
         
-        context = {'spoonNumber' : spoon.spoonNumber(),
-                   'spoonKey': spoon.key(),
-                   'comment': spoon.comment,
-                   'creationDate': spoon.creationDate,
-                   'spoonSteps' : spoon.spoonSteps}
-        self.render_response('followSpoon.html', **context)
+        self.redirect("/followSpoon?spoonNumber=%s" % spoonNumber)

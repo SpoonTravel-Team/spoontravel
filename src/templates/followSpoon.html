@@ -10,14 +10,18 @@
 	<div class="grid_4 form" >
 		<p>
 		Comment: {{comment}}
-		<p/>
+		<p/><br />
 		<p>Creation Date: {{"{:%d/%m/%Y}".format(creationDate)}}</p>
 	</div>
 	
 	<div class='clear'></div>
+	
+	{% if spoonStepsAvailable %}
 	<div class="grid_12 subtitle separateALot">
 		The spoon's life
 	</div>
+	{% endif %}
+	
 	{% for step in spoonSteps %}
 		<div class='clear'></div>
 		<hr>

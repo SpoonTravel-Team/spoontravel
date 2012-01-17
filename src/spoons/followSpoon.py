@@ -4,6 +4,9 @@ from BaseHandler import BaseHandler
 class FollowSpoon(BaseHandler):
     
     def post(self):
+        self.get(self)
+        
+    def get(self):
         try:
             spoonNumber = int(self.request.get('spoonNumber'))
         except ValueError :
@@ -17,6 +20,7 @@ class FollowSpoon(BaseHandler):
                    'spoonKey': spoon.key(),
                    'comment': spoon.comment,
                    'creationDate': spoon.creationDate,
-                   'spoonSteps' : spoon.spoonSteps}
+                   'spoonSteps' : spoon.spoonSteps,
+                   'spoonStepsAvailable' : True}
         self.render_response('followSpoon.html', **context)
         
