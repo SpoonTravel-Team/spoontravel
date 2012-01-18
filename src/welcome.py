@@ -5,6 +5,7 @@ from spoons.addNewSpoon import AddNewSpoon
 from spoons.model.Spoon import SpoonImage
 from spoons.model.SpoonStep import SpoonStepImage
 from BaseHandler import BaseHandler
+from credits import Credits
 
 class Welcome(BaseHandler):
     
@@ -20,5 +21,6 @@ app = webapp2.WSGIApplication([('/', Welcome),
                               ('/addSpoonStep',AddSpoonStep),
                               ('/addNewSpoon',AddNewSpoon),
                               ('/spoonImage',SpoonImage),
-                              ('/spoonStepImage',SpoonStepImage)],
+                              ('/spoonStepImage',SpoonStepImage),
+                              ('/credits',Credits)],
                               debug=True)

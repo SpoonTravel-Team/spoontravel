@@ -2,7 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Gruppo|Ruluko);
 
 html {
-	font-family: 'Ruluko', sans-serif;
+	/*font-family: 'Ruluko', sans-serif;*/
 }
 
 .title{
@@ -26,8 +26,18 @@ html {
 .bigImage{
 	-webkit-border-radius: 10px 10px 0px 0px;
 	-moz-border-radius: 10px 10px 0px 0px;
-	height: 100px;
+	height: 120px;
 	width: 100%;
+}
+
+.logos {
+	margin-top: 20px;
+}
+
+.logo {
+	max-height: 40px;
+	margin-left: 20px;
+	background-color: grey;
 }
 
 .header {
@@ -128,14 +138,14 @@ html {
 	margin-top: 100px;
 	border-top: 5px solid #C0C0C8;
 	background-color: #19191A;
-	padding: 20px 0;
+	padding-top: 20px;
+	padding-bottom: 10px;
 	float: left;
 	width: 100%;
 	min-width: 960px;
 	clear: both;
 	display: inline;
 	color: #565656;
-	height: 20px;
 }
 #footer #copyright{
 	font-size: 20px;
@@ -143,6 +153,14 @@ html {
 	font-family: monospace;
 }
 
+#footer #copyright a{
+	text-decoration: underline;
+	color: #565656;
+}
+.nolink{
+	text-decoration: none;
+	color: inherit;
+}
 
 /*------------------------------------------
 	Button

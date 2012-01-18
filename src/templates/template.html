@@ -4,8 +4,7 @@
 {% block head %}{% endblock %}
 <link type="text/css" rel="stylesheet" href="/css/main.css" />
 <link type="text/css" rel="stylesheet" href="/css/960.gs.css" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>The Spoon Travel</title>
 </head>
@@ -19,8 +18,10 @@
 		</a>-->
 		<div class="grid_12">
 			<div class="header">
-				<img alt="Big Image" src="/images/SpoonTravel.jpg" class="bigImage">
-				<div class="titleUnderImage">THE SPOON TRAVEL...</div>
+				<a href="/" class="nolink" title="The Spoon Travel...">
+					<img alt="Big Image" src="/images/banner.jpg" class="bigImage">
+					<div class="titleUnderImage">THE SPOON TRAVEL...</div>
+				</a>
 			</div>
 		</div>
 		<div class='clear'></div>
@@ -29,8 +30,16 @@
 	</div>
 	<div id="footer">
 		<div class="container container_12">
-			<div class="grid_12 title">
-				<div id="copyright">The Spoon Travel - All rights reserved</div>
+			<div class="grid_12 subtitle">
+				<div id="copyright">The Spoon Travel - All rights reserved - <a href="/credits">Credits</a></div>
+			</div>
+			<div class='clear'></div>
+			<div class="grid_12 logos subtitle">
+				<a href="/credits" class="nolink">
+					<img src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" class="logo"/>
+					<img src="http://code.google.com/p/webapp-improved/logo?cct=1323126743" alt="Powered by WebApp2" class="logo"/>
+					<img src="http://www.pocoo.org/_images/jinja-logo.png" alt="Powered by Jinja2" class="logo"/>
+				</a>
 			</div>
 		</div>
 	</div>
