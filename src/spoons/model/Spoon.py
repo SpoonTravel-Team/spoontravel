@@ -2,6 +2,10 @@ from google.appengine.ext import db
 import webapp2
 
 class Spoon(db.Model):
+    "Spoon model class"
+    
+    PROPERTIES = set(['creationDate','comment','image_blob'])
+    
     creationDate = db.DateTimeProperty(auto_now_add=True)
     comment = db.StringProperty(multiline=True)
     image_blob = db.BlobProperty()
