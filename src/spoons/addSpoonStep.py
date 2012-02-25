@@ -2,7 +2,7 @@ from BaseHandler import BaseHandler
 from spoons.model.Spoon import Spoon
 from spoons.model.SpoonStep import SpoonStep
 from google.appengine.api.images import Image
-from google.appengine.api import images
+from google.appengine.api import images, taskqueue
 from google.appengine.ext import db
 
 class AddSpoonStep(BaseHandler):
@@ -43,5 +43,8 @@ class AddSpoonStep(BaseHandler):
                 resizedPicture = images.resize(picture, 620, 400)
             spoonStep.image_blob = db.Blob(resizedPicture)
         spoonStep.put()
+        
+        # Add the task to the default queue.
+        taskqueue.add(url='/sendMail', params={'spoonNumber': spoonNumber})
         
         self.redirect("/followSpoon?spoonNumber=%s" % spoonNumber)

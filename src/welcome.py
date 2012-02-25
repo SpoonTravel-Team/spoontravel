@@ -6,6 +6,8 @@ from spoons.model.Spoon import SpoonImage
 from spoons.model.SpoonStep import SpoonStepImage
 from BaseHandler import BaseHandler
 from credits import Credits
+from spoons.MailSender import MailSender
+import logging
 
 class Welcome(BaseHandler):
     
@@ -16,11 +18,13 @@ class Welcome(BaseHandler):
 config = {}
 config['webapp2_extras.jinja2'] = {'template_path': 'templates'}
 
+logging.getLogger().setLevel(logging.DEBUG)
 app = webapp2.WSGIApplication([('/', Welcome),
                               ('/followSpoon',FollowSpoon),
                               ('/addSpoonStep',AddSpoonStep),
                               ('/addNewSpoon',AddNewSpoon),
                               ('/spoonImage',SpoonImage),
                               ('/spoonStepImage',SpoonStepImage),
-                              ('/credits',Credits)],
+                              ('/credits',Credits),
+                              ('/sendMail',MailSender)],
                               debug=True)
