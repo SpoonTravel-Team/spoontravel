@@ -4,11 +4,11 @@ from google.appengine.ext import db
 from BaseHandler import BaseHandler
 from google.appengine.api.images import Image
 
-class AddNewSpoon(BaseHandler):
+class MakeMySpoonTravel(BaseHandler):
     
     def get(self):
         context = {}
-        self.render_response('addNewSpoon.html', **context)
+        self.render_response('makeMySpoonTravel.html', **context)
                 
     def post(self):        
         #Creating spoon

@@ -1,13 +1,13 @@
 from spoons.model.Spoon import Spoon
 from BaseHandler import BaseHandler
 
-class FollowSpoon(BaseHandler):
+class TrackSpoon(BaseHandler):
             
     def get(self):
         try:
             spoonNumber = int(self.request.get('spoonNumber'))
         except ValueError :
-            context = {'error' : self.request.get('spoonNumber')+" is not a number !"}
+            context = {'error' : self.request.get('spoonNumber')+" is not a valid SpoonNumber !"}
             self.render_response('error.html', **context)
             return 
         
@@ -19,5 +19,5 @@ class FollowSpoon(BaseHandler):
                    'creationDate': spoon.creationDate,
                    'spoonSteps' : spoon.spoonSteps,
                    'spoonStepsAvailable' : True}
-        self.render_response('followSpoon.html', **context)
+        self.render_response('trackSpoon.html', **context)
         

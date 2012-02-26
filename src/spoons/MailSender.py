@@ -24,7 +24,7 @@ class MailSender(webapp2.RequestHandler):
                 users_address.append(str(spoonStep.email))
                  
         #@todo:  manage host
-        followTheSpoonUrl = "thespoontravel.appspot.com/followSpoon?spoonNumber=%s" % spoonNumber
+        trackSpoonUrl = "thespoontravel.appspot.com/trackSpoon?spoonNumber=%s" % spoonNumber
         email = mail.EmailMessage()
         email.sender = "maxime.werlen@gmail.com"
         logging.info("sender : %s" % email.sender)
@@ -37,7 +37,7 @@ class MailSender(webapp2.RequestHandler):
         See you soon
         
         TheSpoonTravel team
-        """ % followTheSpoonUrl
+        """ % trackSpoonUrl
         
         email.Send()
         

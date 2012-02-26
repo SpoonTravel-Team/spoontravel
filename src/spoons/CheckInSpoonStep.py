@@ -5,13 +5,13 @@ from google.appengine.api.images import Image
 from google.appengine.api import images, taskqueue
 from google.appengine.ext import db
 
-class AddSpoonStep(BaseHandler):
+class CheckInSpoonStep(BaseHandler):
     
     def get(self):
         try:
             spoonNumber = int(self.request.get('spoonNumber'))
         except ValueError :
-            context = {'error' : self.request.get('spoonNumber') + " is not a number !"}
+            context = {'error' : self.request.get('spoonNumber') + " is not a valid SpoonNumber !"}
             self.render_response('error.html', **context)
             return 
             
@@ -23,7 +23,7 @@ class AddSpoonStep(BaseHandler):
         try:
             spoonNumber = int(self.request.get('spoonNumber'))
         except ValueError :
-            context = {'error' : self.request.get('spoonNumber') + " is not a number !"}
+            context = {'error' : self.request.get('spoonNumber') + " is not a valid SpoonNumber !"}
             self.render_response('error.html', **context)
             return
         
@@ -47,4 +47,4 @@ class AddSpoonStep(BaseHandler):
         # Add the task to the default queue.
         taskqueue.add(url='/sendMail', params={'spoonNumber': spoonNumber})
         
-        self.redirect("/followSpoon?spoonNumber=%s" % spoonNumber)
+        self.redirect("/trackSpoon?spoonNumber=%s" % spoonNumber)

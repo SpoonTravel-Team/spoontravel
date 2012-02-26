@@ -1,8 +1,11 @@
 {% extends "template.html" %}
+{% block title %}TheBugTravel :({%endblock title %}
 {% block content %}
-	<div class="grid_12 subtitle">
-		{{error}}
-	</div>
-	<div class='clear'></div>
-
+<div class="hero-unit">
+    <h2>Oups, something went wrong...</h2>
+    <p>
+        <p>{{error}}<p>
+        <a class="btn btn-primary btn-large" href="/"><i class="icon-home icon-white"></i> Get me back home &raquo;</a>
+    </p>
+</div>
 {% endblock content %}

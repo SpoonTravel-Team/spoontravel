@@ -3,6 +3,20 @@
 	function toogleForm(className) {
 		$('#' + className + '>div').toggle();
 	}
+	function verifyTrackSpoon() {
+		if($('#trackSpoonNumber').val().length>0) {
+			$('#trackYourSpoonForm').submit();	
+		}else {
+			$('#trackSpoonNumberError').toggle();
+		}
+	}
+	function verifyAddSpoonStep() {
+		if($('#addSpoonStepNumber').val().length>0) {
+			$('#addSpoonStepForm').submit();	
+		}else {
+			$('#addSpoonStepNumberError').toggle();
+		}
+	}
 </script>
 {%endblock head %} {% block title %}Welcome on SpoonTravel!{%endblock title %} {% block content %}
 
@@ -10,7 +24,7 @@
     <h1>Welcome on the spoon travel</h1>
     <p>The spoon travel allows you to make your spoon travel all around the world. Register your spoon, mark-it then drop it into someone's pocket. The new owner will add a new step to the spoon travel, and share it again. Some month later your spoon will be far far away.
     <p>
-        <a class="btn btn-primary btn-large" href="/addNewSpoon"><i class="icon-tag icon-white"></i> Make my spoon travel &raquo;</a>
+        <a class="btn btn-primary btn-large" href="/makeMySpoonTravel"><i class="icon-tag icon-white"></i> Make my spoon travel &raquo;</a>
     </p>
 </div>
 
@@ -20,9 +34,9 @@
             <img src="http://placehold.it/360x268" alt="">
             <div class="caption">
                 <h5>Register a new Spoon</h5>
-                <p></p>
+                <p>Free your spoon, glue some wing on it or just drop it to someone's pocket. But don't forget to mark a SpoonNumber on it to track it.</p>
                 <p>
-                    <a class="btn btn-large" href="/addNewSpoon" title="Add a new Spoon"><i class="icon-tag"></i> Register my spoon &raquo;</a>
+                    <a class="btn btn-large" href="/makeMySpoonTravel" title="Make my spoon travel"><i class="icon-tag"></i> Make my spoon travel &raquo;</a>
                 </p>
             </div>
         </div>
@@ -31,25 +45,30 @@
         <div class="thumbnail">
             <img src="http://placehold.it/360x268" alt="">
             <div class="caption">
-                <h5>Follow a spoon</h5>
+                <h5>Track your spoon</h5>
                 <div id="followTheSpoon">
                     <div>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                        <p>New-York, Moscow, Sidney, Beijing, Delhi, São Paulo&nbsp;? Where your spoon has been traveling&nbsp;?</p>
+                        <p>
+                            <a class="btn btn-large" onmousedown="toogleForm('followTheSpoon')"><i class="icon-search"></i> Track your spoon &raquo;</a>
+                        </p>
                     </div>
                     <div style="display: none">
-                        <form action="/followSpoon" method="get">
-                            <div>
-                                <input type="text" name="spoonNumber"></input>
+                        <form action="/trackSpoon" method="get" id="trackYourSpoonForm">
+                            <div class="alert alert-error" id="trackSpoonNumberError" style="display: none">
+                                <a class="close" onmousedown="$('#trackSpoonNumberError').toggle();">×</a>
+                                <strong>Spoon Number is mandatory&nbsp;!</strong>
                             </div>
-                            <div>
-                                <input class="btn" type="submit" value="Follow this spoon">
-                            </div>
+                            <p>
+                                Your SpoonNumber&nbsp;:<br/>
+                                <input type="text" name="spoonNumber" id="trackSpoonNumber"></input>
+                            </p>
+                            <p>
+                                <a class="btn btn-large" onmousedown="verifyTrackSpoon()"><i class="icon-search"></i> Track your spoon &raquo;</a>
+                            </p>
                         </form>
                     </div>
                 </div>
-                <p>
-                    <a class="btn" onmousedown="toogleForm('followTheSpoon')"><i class="icon-search"></i> Follow a spoon &raquo;</a>
-                </p>
             </div>
         </div>
     </li>
@@ -57,27 +76,33 @@
         <div class="thumbnail">
             <img src="http://placehold.it/360x268" alt="">
             <div class="caption">
-                <h5>Add a spoon's step</h5>
+                <h5>Add a step to this spoon life</h5>
+                
                 <div id="addSpoon">
                     <div>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                        <p>You found a Spoon or you got a spoon dining at home&nbsp;? Check it in to let the world be aware of this spoon travel&nbsp;! Give us some pictures&nbsp;!</p>
+                        <p>
+                            <a class="btn btn-large" onmousedown="toogleForm('addSpoon')"><i class="icon-spoon"></i> Add a travel stop to your spoon &raquo;</a>
+                        </p>
                     </div>
                     <div style="display: none">
-                        <form action="/addSpoonStep" method="get">
-                            <div>
-                                <input type="text" name="spoonNumber"></input>
+                        <form action="/addSpoonStep" method="get" id="addSpoonStepForm">
+                            <div class="alert alert-error" id="addSpoonStepNumberError" style="display: none">
+                                <a class="close" onmousedown="$('#addSpoonStepNumberError').toggle();">×</a>
+                                <strong>Spoon Number is mandatory&nbsp;!</strong>
                             </div>
-                            <div>
-                                <input class="btn" type="submit" value="Add a step to this spoon life">
-                            </div>
+                            <p>
+                                Your SpoonNumber :<br/>
+                                <input type="text" name="spoonNumber" id="addSpoonStepNumber"></input>
+                            </p>
+                            <p>
+                                <a class="btn btn-large" onmousedown="verifyAddSpoonStep()"><i class="icon-spoon"></i> Add a travel stop to this spoon &raquo;</a>
+                            </p>
                         </form>
                     </div>
                 </div>
-                <p>
-                    <a class="btn" onmousedown="toogleForm('addSpoon')"><i class="icon-spoon"></i> Add a spoon's step &raquo;</a>
-                </p>
             </div>
         </div>
     </li>
-</ul>   
+</ul>
 {% endblock content %}
