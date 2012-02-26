@@ -38,3 +38,8 @@ body {
 .navbar-fixed-top .brand:hover {
   text-decoration: none;
 }
+
+/* Other things */
+.creditSource {
+	height : 300 px;
+}
