@@ -2,7 +2,6 @@ import webapp2
 import logging
 from spoons.model.Spoon import Spoon
 from google.appengine.api import mail
-from spoons.model.SpoonStep import SpoonStep
 
 class MailSender(webapp2.RequestHandler):
     '''
@@ -24,7 +23,7 @@ class MailSender(webapp2.RequestHandler):
             if spoonStep.email is not None :
                 users_address.append(str(spoonStep.email))
                  
-        #@todo:  Gérer le host
+        #@todo:  manage host
         followTheSpoonUrl = "thespoontravel.appspot.com/followSpoon?spoonNumber=%s" % spoonNumber
         email = mail.EmailMessage()
         email.sender = "maxime.werlen@gmail.com"

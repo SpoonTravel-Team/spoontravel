@@ -2,46 +2,58 @@
 <html>
 <head>
 {% block head %}{% endblock %}
-<link type="text/css" rel="stylesheet" href="/css/main.css" />
-<link type="text/css" rel="stylesheet" href="/css/960.gs.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>The Spoon Travel</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Spoon Travel">
+<meta name="author" content="Mamoun El-Mansouri & Maxime Werlen">
+
+<!-- Styles -->
+<link href="/css/bootstrap.css" rel="stylesheet">
+<link href="/css/docs.css" rel="stylesheet">
+<title>{% block title %}The Spoon Travel{% endblock %}</title>
 </head>
 <body>
-	<div class="container container_12">
-		<!--<a href="/" class="titleLink">
-			<div class="grid_12 title">
-				<img src="/images/spoon.png" height="60px" style="text-align: left;" />
-				{% block title %}The Spoon Travel{% endblock %}
-			</div>
-		</a>-->
-		<div class="grid_12">
-			<div class="header">
-				<a href="/" class="nolink" title="The Spoon Travel...">
-					<img alt="Big Image" src="/images/banner.jpg" class="bigImage">
-					<div class="titleUnderImage">THE SPOON TRAVEL...</div>
-				</a>
-			</div>
-		</div>
-		<div class='clear'></div>
 
-		{% block content %}{% endblock %}
-	</div>
-	<div id="footer">
-		<div class="container container_12">
-			<div class="grid_12 subtitle">
-				<div id="copyright">The Spoon Travel - All rights reserved - <a href="/credits">Credits</a></div>
-			</div>
-			<div class='clear'></div>
-			<div class="grid_12 logos subtitle">
-				<a href="/credits" class="nolink">
-					<img src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" class="logo"/>
-					<img src="http://code.google.com/p/webapp-improved/logo?cct=1323126743" alt="Powered by WebApp2" class="logo"/>
-					<img src="http://www.pocoo.org/_images/jinja-logo.png" alt="Powered by Jinja2" class="logo"/>
-				</a>
-			</div>
-		</div>
-	</div>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                </a> <a class="brand" href="./index.html" muse_scanned="true">The Spoon Travel</a>
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="active"><a href="/"><i class="icon icon-white icon-home"></i> Home</a></li>
+                        <li><a href="/about#about"><i class="icon icon-white icon-user"></i> About</a></li>
+                        <li><a href="/about#contact"><i class="icon icon-white icon-envelope"></i> Contact</a></li>
+                        <li><a href="/credits"><i class="icon icon-white icon-list-alt"></i> Credits</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+
+        {% block content %}{% endblock %}
+
+    
+        <hr>
+    
+        <footer>
+        <p>
+            &copy; The Spoon Travel - All rights reserved - <a href="/credits">Credits </a>
+        </p>
+        </footer>
+
+    </div>
+    <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 </body>
 </html>

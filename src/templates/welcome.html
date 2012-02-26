@@ -1,58 +1,83 @@
-{% extends "template.html" %}
-
-{% block head %}
+{% extends "template.html" %} {% block head %}
 <script type="text/javascript">
-	function toogleForm(className){
-		$('#'+className+'>div').toggle();
+	function toogleForm(className) {
+		$('#' + className + '>div').toggle();
 	}
-</script>{%endblock head %}
-{% block title %}Welcome on SpoonTravel!{%endblock title %}
-{% block content %}
-<div class="grid_12">
-	<div class="bigText">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in dui sit amet augue bibendum vestibulum ut et mi. Mauris sit amet eros est, eu adipiscing ipsum. Etiam fringilla ultricies leo sit amet mattis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse scelerisque eros non arcu porttitor aliquam. Sed non interdum metus. Aenean malesuada ligula ac nisi eleifend auctor. Mauris in tortor vitae metus placerat pharetra ac nec leo. Duis tincidunt dictum odio, ac vehicula mi gravida vel. Sed vitae ante neque.</p> 
-	</div>
+</script>
+{%endblock head %} {% block title %}Welcome on SpoonTravel!{%endblock title %} {% block content %}
+
+<div class="hero-unit">
+    <h1>Welcome on the spoon travel</h1>
+    <p>The spoon travel allows you to make your spoon travel all around the world. Register your spoon, mark-it then drop it into someone's pocket. The new owner will add a new step to the spoon travel, and share it again. Some month later your spoon will be far far away.
+    <p>
+        <a class="btn btn-primary btn-large" href="/addNewSpoon"><i class="icon-tag icon-white"></i> Make my spoon travel &raquo;</a>
+    </p>
 </div>
-<div class='clear'></div>
-<div class='grid_4 choosingBox'>
-	<a href="/addNewSpoon" title="Add a new Spoon">
-		<div class='topChoosingBox '>
-			<img src="/images/spoon.png" />
-		</div>
-		Register a new Spoon
-	</a>
-</div>
-<div class='grid_4 choosingBox' id="followTheSpoon">
-	<div class='topChoosingBox '>
-		<img src="/images/spoon.png"  onmousedown="toogleForm('followTheSpoon')"/>
-	</div>
-	<div class='topChoosingBox'  style="display: none">
-		<form action="/followSpoon" method="get">
-			<div>
-				<input type="text" name="spoonNumber"></input>
-			</div>
-			<div>
-				<input class="button" type="submit" value="Follow this spoon">
-			</div>
-		</form>
-	</div>
-	<a title="Follow a Spoon" onmousedown="toogleForm('followTheSpoon')">Follow a Spoon</a>
-</div>
-<div class='grid_4 choosingBox' id="addSpoon">
-	<div class='topChoosingBox'>
-		<img src="/images/spoon.png" onmousedown="toogleForm('addSpoon')" />
-	</div>
-	<div class='topChoosingBox' style="display: none">
-		<form action="/addSpoonStep" method="get">
-			<div>
-				<input type="text" name="spoonNumber"></input>
-			</div>
-			<div>
-				<input class="button" type="submit" value="Add a step to this spoon life">
-			</div>
-		</form>
-	</div>
-	<a title="Add a step to your spoon" onmousedown="toogleForm('addSpoon')">Add a spoon's step</a>
-</div>
-<div class='clear'></div>
+
+<ul class="thumbnails">
+    <li class="span4">
+        <div class="thumbnail">
+            <img src="http://placehold.it/360x268" alt="">
+            <div class="caption">
+                <h5>Register a new Spoon</h5>
+                <p></p>
+                <p>
+                    <a class="btn btn-large" href="/addNewSpoon" title="Add a new Spoon"><i class="icon-tag"></i> Register my spoon &raquo;</a>
+                </p>
+            </div>
+        </div>
+    </li>
+    <li class="span4">
+        <div class="thumbnail">
+            <img src="http://placehold.it/360x268" alt="">
+            <div class="caption">
+                <h5>Follow a spoon</h5>
+                <div id="followTheSpoon">
+                    <div>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    </div>
+                    <div style="display: none">
+                        <form action="/followSpoon" method="get">
+                            <div>
+                                <input type="text" name="spoonNumber"></input>
+                            </div>
+                            <div>
+                                <input class="btn" type="submit" value="Follow this spoon">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <p>
+                    <a class="btn" onmousedown="toogleForm('followTheSpoon')"><i class="icon-search"></i> Follow a spoon &raquo;</a>
+                </p>
+            </div>
+        </div>
+    </li>
+    <li class="span4">
+        <div class="thumbnail">
+            <img src="http://placehold.it/360x268" alt="">
+            <div class="caption">
+                <h5>Add a spoon's step</h5>
+                <div id="addSpoon">
+                    <div>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                    </div>
+                    <div style="display: none">
+                        <form action="/addSpoonStep" method="get">
+                            <div>
+                                <input type="text" name="spoonNumber"></input>
+                            </div>
+                            <div>
+                                <input class="btn" type="submit" value="Add a step to this spoon life">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <p>
+                    <a class="btn" onmousedown="toogleForm('addSpoon')"><i class="icon-spoon"></i> Add a spoon's step &raquo;</a>
+                </p>
+            </div>
+        </div>
+    </li>
+</ul>   
 {% endblock content %}
