@@ -13,6 +13,7 @@ class SpoonStep(db.Model):
     place = db.PostalAddressProperty()
     email = db.EmailProperty()
     image_blob = db.BlobProperty()
+    currentOwner = db.StringProperty()
     
 class SpoonStepImage(webapp2.RequestHandler):
     def get(self):

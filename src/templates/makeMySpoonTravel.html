@@ -1,28 +1,55 @@
-{% extends "template.html" %}
-{% block content %}
-	<div class="grid_12 subtitle">
-		Adding a new spoon
+{% extends "template.html" %} {% block content %}
+<div class="row">
+	<div class="span4">
+		<ul class="thumbnails">
+			<li class="span4">
+				<div class="thumbnail ">
+					<img src="http://placehold.it/360x268" alt="Place something more interesting than that">
+					<div class="caption">
+						<h5>Flying spoon</h5>
+					</div>
+				</div>
+			</li>
+		</ul>
 	</div>
-	<div class='clear'></div>
-	<div class="grid_3">
-			<img src="/images/spoon.png" />
-	</div>
-	<div class="grid_9 form">
-		<form action="/makeMySpoonTravel" method="post" enctype="multipart/form-data">
-			<div>
-				<label>Give some comments about this spoon:</label><br/>
-				<textarea name="comment" rows="3" cols="60"></textarea>
-			</div>
-			<div>
-				<label>Picture of the spoon:</label>
-				<input type="file" name="img" />
-			</div>
-			<div style="text-align: center; margin-top: 10px">
-				<input type="submit" value="Add my spoon" class="button" >
-			</div>
+
+	<div class="span8 ">
+		<form class="form-horizontal" action="/makeMySpoonTravel"
+			method="post" enctype="multipart/form-data">
+			<fieldset>
+				<legend>Make your spoon travel</legend>
+				<div class="control-group">
+					<label class="control-label" for="input01">You are you?</label>
+					<div class="controls">
+						<input type="text" class="input-xlarge" id="input01">
+						<p class="help-block">Give us a name, nickname or brief
+							description</p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="textarea">Describe the
+						spoon</label>
+					<div class="controls">
+						<textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+						<p class="help-block">Give some comments about this spoon :
+							metal/plastic, colors, age, biography...</p>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="fileInput">Picture</label>
+					<div class="controls">
+						<input class="input-file" id="fileInput" type="file">
+						<p class="help-block">Valid federal or state-issued photo ID
+							only of your spoon, of course!</p>
+					</div>
+				</div>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary">
+						<i class="icon-tag"></i> Let's go &raquo;
+					</button>
+				</div>
+			</fieldset>
 		</form>
 	</div>
-	<div class='clear'></div>
-	
-
+</div>
 {% endblock content %}

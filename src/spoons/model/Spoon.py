@@ -8,6 +8,7 @@ class Spoon(db.Model):
     
     creationDate = db.DateTimeProperty(auto_now_add=True)
     comment = db.StringProperty(multiline=True)
+    initialOwner = db.StringProperty()
     image_blob = db.BlobProperty()
     
     def spoonNumber(self):
