@@ -9,6 +9,7 @@ from credits import Credits
 from About import About
 from BaseHandler import BaseHandler
 import logging
+from spoons import ShowSpoon
 
 class Welcome(BaseHandler):
     
@@ -20,13 +21,17 @@ config = {}
 config['webapp2_extras.jinja2'] = {'template_path': 'templates'}
 
 logging.getLogger().setLevel(logging.DEBUG)
-app = webapp2.WSGIApplication([('/', Welcome),
-                              ('/trackSpoon',TrackSpoon),
-                              ('/addSpoonStep',CheckInSpoonStep),
-                              ('/makeMySpoonTravel',MakeMySpoonTravel),
-                              ('/spoonImage',SpoonImage),
-                              ('/spoonStepImage',SpoonStepImage),
-                              ('/credits',Credits),
-                              ('/about',About),
-                              ('/sendMail',MailSender)],
-                              debug=True)
+app = webapp2.WSGIApplication([
+                webapp2.Route('/', handler=Welcome, name='home'),
+                webapp2.Route('/home', handler=Welcome, name='namedHome'),
+                webapp2.Route('/trackSpoon', handler=TrackSpoon, name='trackSpoonForm'),
+                webapp2.Route('/trackSpoon/<spoonNumber:\d{6}>', handler=ShowSpoon, name='spoon'),
+                webapp2.Route('/spoon/<spoonNumber:\d{6}>', handler=ShowSpoon, name='spoon'),
+                webapp2.Route('/addSpoonStep', handler=CheckInSpoonStep, name='CheckInSpoonStepForm'),
+                webapp2.Route('/makeMySpoonTravel', handler=MakeMySpoonTravel, name='makeMySpoonTravel'),
+                webapp2.Route('/spoonImage', handler=SpoonImage, name='spoonImage'),
+                webapp2.Route('/spoonStepImage', handler=SpoonStepImage, name='spoonStepImage'),
+                webapp2.Route('/credits', handler=Credits, name='credits'),
+                webapp2.Route('/about', handler=About, name='about'),
+                webapp2.Route('/sendMail', handler=MailSender, name='sendmail')
+                            ], debug=True)
