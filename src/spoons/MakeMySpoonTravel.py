@@ -14,6 +14,7 @@ class MakeMySpoonTravel(BaseHandler):
         #Creating spoon
         spoon = Spoon()
         spoon.comment = self.request.get('comment')
+        spoon.initialOwner = self.request.get('initialOwner')
         picture=self.request.get('img')
         if picture :
             resizedPicture = picture

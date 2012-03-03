@@ -1,5 +1,6 @@
 import webapp2
 from spoons.TrackSpoon import TrackSpoon
+from spoons.ShowSpoon import ShowSpoon
 from spoons.CheckInSpoonStep import CheckInSpoonStep
 from spoons.MakeMySpoonTravel import MakeMySpoonTravel
 from spoons.MailSender import MailSender
@@ -9,7 +10,6 @@ from credits import Credits
 from About import About
 from BaseHandler import BaseHandler
 import logging
-from spoons import ShowSpoon
 
 class Welcome(BaseHandler):
     
@@ -25,8 +25,9 @@ app = webapp2.WSGIApplication([
                 webapp2.Route('/', handler=Welcome, name='home'),
                 webapp2.Route('/home', handler=Welcome, name='namedHome'),
                 webapp2.Route('/trackSpoon', handler=TrackSpoon, name='trackSpoonForm'),
-                webapp2.Route('/trackSpoon/<spoonNumber:\d{6}>', handler=ShowSpoon, name='spoon'),
-                webapp2.Route('/spoon/<spoonNumber:\d{6}>', handler=ShowSpoon, name='spoon'),
+                webapp2.Route('/trackSpoon/<spoonNumber:\d+>', handler=ShowSpoon, name='trackSpoon'),
+                webapp2.Route('/spoon', handler=ShowSpoon, name='spoon'),
+                webapp2.Route('/spoon/<spoonNumber:\d+>', handler=ShowSpoon, name='spoon'),
                 webapp2.Route('/addSpoonStep', handler=CheckInSpoonStep, name='CheckInSpoonStepForm'),
                 webapp2.Route('/makeMySpoonTravel', handler=MakeMySpoonTravel, name='makeMySpoonTravel'),
                 webapp2.Route('/spoonImage', handler=SpoonImage, name='spoonImage'),

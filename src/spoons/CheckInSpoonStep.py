@@ -17,7 +17,7 @@ class CheckInSpoonStep(BaseHandler):
             
         spoon = Spoon.get_by_id(spoonNumber)
         context = {'spoonNumber' : spoon.spoonNumber()}
-        self.render_response('addSpoonStep.html', **context)
+        self.render_response('CheckInSpoonStep.html', **context)
         
     def post(self):
         try:
@@ -33,6 +33,7 @@ class CheckInSpoonStep(BaseHandler):
         spoonStep = SpoonStep()
         spoonStep.comment = self.request.get('comment')
         spoonStep.place = self.request.get('place')
+        spoonStep.currentOwner = self.request.get('currentOwner')
         if self.request.get('email') :
             spoonStep.email = self.request.get('email')
         spoonStep.spoon = spoon

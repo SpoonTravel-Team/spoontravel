@@ -1,21 +1,18 @@
 from spoons.model.Spoon import Spoon
 from BaseHandler import BaseHandler
 
-class TrackSpoon(BaseHandler):
+class ShowSpoon(BaseHandler):
             
     def get(self, spoonNumber=None):
-        if(spoonNumber!=None):
+        if(spoonNumber==None):
             try:
                 spoonNumber = int(self.request.get('spoonNumber'))
             except ValueError :
-                spoonNumber=None
-                
-        if(spoonNumber==None):
-            context = {'error' : "You need to send a valid SpoonNumber !"}
-            self.render_response('error.html', **context)
-            return 
+                context = {'error' : "You need to send a valid SpoonNumber !"}
+                self.render_response('error.html', **context)
+                return 
         
-        spoon = Spoon.get_by_id(spoonNumber)
+        spoon = Spoon.get_by_id(int(spoonNumber))
                 
         context = {'spoonNumber' : spoon.spoonNumber(),
                    'spoonKey': spoon.key(),
