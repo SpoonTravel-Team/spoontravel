@@ -1,5 +1,4 @@
 import webapp2
-from spoons.TrackSpoon import TrackSpoon
 from spoons.ShowSpoon import ShowSpoon
 from spoons.CheckInSpoonStep import CheckInSpoonStep
 from spoons.MakeMySpoonTravel import MakeMySpoonTravel
@@ -24,8 +23,6 @@ logging.getLogger().setLevel(logging.DEBUG)
 app = webapp2.WSGIApplication([
                 webapp2.Route('/', handler=Welcome, name='home'),
                 webapp2.Route('/home', handler=Welcome, name='namedHome'),
-                webapp2.Route('/trackSpoon', handler=TrackSpoon, name='trackSpoonForm'),
-                webapp2.Route('/trackSpoon/<spoonNumber:\d+>', handler=ShowSpoon, name='trackSpoon'),
                 webapp2.Route('/spoon', handler=ShowSpoon, name='spoon'),
                 webapp2.Route('/spoon/<spoonNumber:\d+>', handler=ShowSpoon, name='spoon'),
                 webapp2.Route('/addSpoonStep', handler=CheckInSpoonStep, name='CheckInSpoonStepForm'),

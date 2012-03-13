@@ -48,4 +48,4 @@ class CheckInSpoonStep(BaseHandler):
         # Add the task to the default queue.
         taskqueue.add(url='/sendMail', params={'spoonNumber': spoonNumber})
         
-        self.redirect("/trackSpoon?spoonNumber=%s" % spoonNumber)
+        self.redirect("/spoon/%s" % spoonNumber)

@@ -1,42 +1,63 @@
-{% extends "template.html" %}
-{% block content %}
-	<div class="grid_12 subtitle">
-		The spoon #{{"{:06d}".format(spoonNumber)}}
+{% extends "template.html" %} {% block content %}
+<div class="row">
+	<div class="span5">
+		<ul class="thumbnails">
+			<!-- Left column -->
+			<li class="span5">
+				<div class="thumbnail ">
+					<!-- Spoon ID card with some stats -->
+					<div class="caption">
+                        <h5>Spoon #{{"{:06d}".format(spoonNumber)}} tracking sheet</h5>
+                    </div>
+					
+					<p>Comment: {{comment}}<p />
+					<p>Creation Date: {{"{:%d/%m/%Y}".format(creationDate)}}</p>
+					Google +1
+				</div>
+			</li>
+			<li class="span5">
+				<div class="thumbnail ">
+					<!-- Spoon picture -->
+					<div class="caption">
+                        <h5>Traveler's picture</h5>
+                    </div>
+					<img src='/spoonImage?width=440&img_id={{spoonKey}}' width=""></img>
+				</div>
+			</li>
+			<li class="span5">
+				<div class="thumbnail ">
+					<!-- Spoon travel map -->
+					<div class="caption">
+                        <h5>Soon there will be a map here</h5>
+                    </div>
+				</div>
+			</li>
+		</ul>
 	</div>
-	<div class='clear'></div>
-	<div class="grid_8 spoonImage">
-		<img src='/spoonImage?img_id={{spoonKey}}'></img>
+	<div class="span7">
+		<!-- Right column -->
+
+		<ul class="thumbnails">
+			{% for step in spoonSteps %}
+			<li class="span7">
+				<div class="thumbnail ">
+					<div class="caption">
+                        <h5>Seen the {{"{:%d/%m/%Y}".format(step.date)}} @ {{step.place}}</h5>
+                    </div>
+					<p>{{step.comment}}<p />
+					<img src='/spoonStepImage?img_id={{step.key()}}'></img>
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
 	</div>
-	<div class="grid_4 form" >
-		<p>
-		Comment: {{comment}}
-		<p/><br />
-		<p>Creation Date: {{"{:%d/%m/%Y}".format(creationDate)}}</p>
-	</div>
-	
-	<div class='clear'></div>
-	
-	{% if spoonStepsAvailable %}
-	<div class="grid_12 subtitle separateALot">
-		The spoon's life
-	</div>
-	{% endif %}
-	
-	{% for step in spoonSteps %}
-		<div class='clear'></div>
-		<hr>
-		<div class="grid_4 form spoonStep" >
-			<p>
-			Comment: {{step.comment}}
-			<p/><br />
-			<p>
-			Place: {{step.place}}
-			<p/><br />
-			<p>Creation Date: {{"{:%d/%m/%Y}".format(creationDate)}}</p><br />
-		</div>
-		<div class="grid_8 spoonStepImage">
-			<img src='/spoonStepImage?img_id={{step.key()}}'></img>
-		</div>
-	{% endfor %}
+</div>
+
+
+
+
+
+
+
 
 {% endblock content %}
