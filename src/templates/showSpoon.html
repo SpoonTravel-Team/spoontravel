@@ -37,6 +37,12 @@
 	<div class="span7">
 		<!-- Right column -->
 
+		{% if not(stepsAvailable) %}
+		<div class="alert alert-block">
+			<h4 class="alert-heading">Nothing to see here</h4>
+			This spoon has not traveled...
+		</div>
+		{% else %}
 		<ul class="thumbnails">
 			{% for step in spoonSteps %}
 			<li class="span7">
@@ -50,6 +56,7 @@
 			</li>
 			{% endfor %}
 		</ul>
+		{% endif %}
 	</div>
 </div>
 

@@ -13,12 +13,17 @@ class ShowSpoon(BaseHandler):
                 return 
         
         spoon = Spoon.get_by_id(int(spoonNumber))
-                
+        
+        if(spoon is None):
+            context = {'error' : " This spoon does not exists!"}
+            self.render_response('error.html', **context)
+            return
+            
         context = {'spoonNumber' : spoon.spoonNumber(),
                    'spoonKey': spoon.key(),
                    'comment': spoon.comment,
                    'creationDate': spoon.creationDate,
                    'spoonSteps' : spoon.spoonSteps,
-                   'spoonStepsAvailable' : True}
+                   'stepsAvailable': spoon.spoonSteps.count(1)>0}
         self.render_response('showSpoon.html', **context)
         
