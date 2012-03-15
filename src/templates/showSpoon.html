@@ -1,43 +1,73 @@
-{% extends "template.html" %} {% block content %}
+{% extends "template.html" %} {% block head %}
+<!-- Update your html tag to include the itemscope and itemtype attributes -->
+<html itemscope itemtype="http://schema.org/Product">
+
+<!-- Add the following three tags inside head -->
+<meta itemprop="name" content="My travelling spoon">
+<meta itemprop="description" content="My spoon is travelling!">
+<meta itemprop="image" content="http://placehold.it/100x100&amp;text=Spoon">
+
+{% endblock head %} {% block content %}
 <div class="row">
 	<div class="span5">
-		<ul class="thumbnails">
-			<!-- Left column -->
-			<li class="span5">
-				<div class="thumbnail ">
-					<!-- Spoon ID card with some stats -->
-					<div class="caption">
-                        <h5>Spoon #{{"{:06d}".format(spoonNumber)}} tracking sheet</h5>
-                    </div>
-					
-					<p>Comment: {{comment}}<p />
-					<p>Creation Date: {{"{:%d/%m/%Y}".format(creationDate)}}</p>
-					Google +1
-				</div>
-			</li>
-			<li class="span5">
-				<div class="thumbnail ">
-					<!-- Spoon picture -->
-					<div class="caption">
-                        <h5>Traveler's picture</h5>
-                    </div>
-					<img src='/spoonImage?width=440&img_id={{spoonKey}}' width=""></img>
-				</div>
-			</li>
-			<li class="span5">
-				<div class="thumbnail ">
-					<!-- Spoon travel map -->
-					<div class="caption">
-                        <h5>Soon there will be a map here</h5>
-                    </div>
-				</div>
-			</li>
-		</ul>
+		<!-- Left column -->
+
+		<div class="row separatedRown">
+			<div class="span5">
+				<!-- Spoon ID card with some stats -->
+				<p>
+					<span class="label label-info"><strong>Spoon</strong></span>
+				</p>
+				<table class="table table-bordered thcentered" width="100%">
+					<thead>
+						<tr>
+							<th>#{{"{:06d}".format(spoonNumber)}}</th>
+							<th>Travel started on <br /> <strong>{{"{:%A, %d %B %Y}".format(creationDate)}}</strong></th>
+							<th>{{stepsCount}} steps</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="3">{{comment}}</td>
+						</tr>
+						<tr>
+							<td colspan="3">
+								<!-- Place this tag where you want the +1 button to render -->
+								<g:plusone annotation="inline" width="300"></g:plusone>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row separatedRown">
+			<div class="span5">
+				<!-- Spoon picture -->
+				<p>
+					<span class="label label-info"><strong>Picture</strong></span>
+				</p>
+				<img src='/spoonImage?width=440&img_id={{spoonKey}}'></img>
+			</div>
+		</div>
+
+		<div class="row separatedRown">
+			<div class="span5">
+				<!-- Spoon travel map -->
+				<p>
+					<span class="label label-info"><strong>Map</strong></span>
+				</p>
+				<img src='http://placehold.it/440x300&text=map' width=""></img>
+			</div>
+		</div>
 	</div>
 	<div class="span7">
 		<!-- Right column -->
+		<p>
+			<span class="label label-info"><strong>The spoon travel</strong></span>
+		</p>
 
-		{% if not(stepsAvailable) %}
+		{% if stepsCount==0 %}
 		<div class="alert alert-block">
 			<h4 class="alert-heading">Nothing to see here</h4>
 			This spoon has not traveled...
@@ -48,13 +78,13 @@
 			<li class="span7">
 				<div class="thumbnail ">
 					<div class="caption">
-                        <h5>Seen the {{"{:%d/%m/%Y}".format(step.date)}} @ {{step.place}}</h5>
-                    </div>
-					<p>{{step.comment}}<p />
-					<img src='/spoonStepImage?img_id={{step.key()}}'></img>
+						<h5>Seen the {{"{:%d/%m/%Y}".format(step.date)}} @ {{step.place}}</h5>
+						<p>{{step.comment}}<p />
+						<p><i><a>See/hide picture</a></i></p>
+						<img src='/spoonStepImage?img_id={{step.key()}}'></img>
+					</div>
 				</div>
-			</li>
-			{% endfor %}
+			</li> {% endfor %}
 		</ul>
 		{% endif %}
 	</div>
@@ -62,7 +92,17 @@
 
 
 
-
+<!-- Place this render call where appropriate -->
+<script type="text/javascript">
+	(function() {
+		var po = document.createElement('script');
+		po.type = 'text/javascript';
+		po.async = true;
+		po.src = 'https://apis.google.com/js/plusone.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(po, s);
+	})();
+</script>
 
 
 

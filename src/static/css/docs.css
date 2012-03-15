@@ -1,45 +1,55 @@
-
 /* Body and structure
 -------------------------------------------------- */
 body {
-  position: relative;
-  padding-top: 90px;
-  background-color: #fff;
-  background-repeat: repeat-x;
-  background-position: 0 40px;
+	position: relative;
+	padding-top: 90px;
+	background-color: #fff;
+	background-repeat: repeat-x;
+	background-position: 0 40px;
 }
 
 .icon-spoon {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  line-height: 14px;
-  background-position: 0px 0px;
-  vertical-align: text-top;
-  background-image: url("/img/spoonIcon.png");
-  *margin-right: .3em;
-  background-repeat: no-repeat;
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	line-height: 14px;
+	background-position: 0px 0px;
+	vertical-align: text-top;
+	background-image: url("/img/spoonIcon.png");
+	*margin-right: .3em;
+	background-repeat: no-repeat;
 }
 
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
 .navbar-fixed-top .brand {
-  padding-right: 0;
-  padding-left: 0;
-  margin-left: 20px;
-  float: right;
-  font-weight: bold;
-  color: #000;
-  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
-  -webkit-transition: all .2s linear;
-     -moz-transition: all .2s linear;
-          transition: all .2s linear;
+	padding-right: 0;
+	padding-left: 0;
+	margin-left: 20px;
+	float: right;
+	font-weight: bold;
+	color: #000;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px
+		rgba(255, 255, 255, .125);
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	transition: all .2s linear;
 }
+
 .navbar-fixed-top .brand:hover {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 /* Other things */
 .creditSource {
-	height : 300 px;
+	height: 300 px;
+}
+
+.thcentered thead tr th {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.separatedRown {
+	margin-bottom: 30px;
 }

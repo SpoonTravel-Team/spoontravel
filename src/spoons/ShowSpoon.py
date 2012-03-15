@@ -24,6 +24,6 @@ class ShowSpoon(BaseHandler):
                    'comment': spoon.comment,
                    'creationDate': spoon.creationDate,
                    'spoonSteps' : spoon.spoonSteps,
-                   'stepsAvailable': spoon.spoonSteps.count(1)>0}
+                   'stepsCount': spoon.spoonSteps.count()}
         self.render_response('showSpoon.html', **context)
         
