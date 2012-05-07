@@ -7,15 +7,17 @@ from google.appengine.ext import db
 
 class CheckInSpoonStep(BaseHandler):
     
-    def get(self):
-        try:
-            spoonNumber = int(self.request.get('spoonNumber'))
-        except ValueError :
-            context = {'error' : self.request.get('spoonNumber') + " is not a valid SpoonNumber !"}
-            self.render_response('error.html', **context)
-            return 
+    def get(self,spoonNumber=None):
+        if(spoonNumber==None):
+            try:
+                spoonNumber = int(self.request.get('spoonNumber'))
+            except ValueError :
+                context = {'error' : self.request.get('spoonNumber') + " is not a valid SpoonNumber !"}
+                self.render_response('error.html', **context)
+                return 
             
-        spoon = Spoon.get_by_id(spoonNumber)
+        spoon = Spoon.get_by_id(int(spoonNumber))
+        
         context = {'spoonNumber' : spoon.spoonNumber()}
         self.render_response('CheckInSpoonStep.html', **context)
         

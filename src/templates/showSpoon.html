@@ -21,9 +21,9 @@
 				<table class="table table-bordered thcentered" width="100%">
 					<thead>
 						<tr>
-							<th>#{{"{:06d}".format(spoonNumber)}}</th>
+							<th>Spoon<br/>#{{"{:06d}".format(spoonNumber)}}</th>
 							<th>Travel started on <br /> <strong>{{"{:%A, %d %B %Y}".format(creationDate)}}</strong></th>
-							<th>{{stepsCount}} steps</th>
+							<th>{{stepsCount}} steps<br/><mall>away from home</mall></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -70,7 +70,7 @@
 		{% if stepsCount==0 %}
 		<div class="alert alert-block">
 			<h4 class="alert-heading">Nothing to see here</h4>
-			This spoon has not traveled...
+			This spoon has not traveled yet...
 		</div>
 		{% else %}
 		<ul class="thumbnails">
@@ -87,6 +87,9 @@
 			</li> {% endfor %}
 		</ul>
 		{% endif %}
+        <p>
+            <a class="btn btn-primary btn-large" href="/addSpoonStep/{{"{:06d}".format(spoonNumber)}}"><i class="icon-spoon"></i> Add a travel stop to this spoon &raquo;</a>
+        </p>
 	</div>
 </div>
 

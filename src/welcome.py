@@ -26,6 +26,7 @@ app = webapp2.WSGIApplication([
                 webapp2.Route('/spoon', handler=ShowSpoon, name='spoon'),
                 webapp2.Route('/spoon/<spoonNumber:\d+>', handler=ShowSpoon, name='spoon'),
                 webapp2.Route('/addSpoonStep', handler=CheckInSpoonStep, name='CheckInSpoonStepForm'),
+                webapp2.Route('/addSpoonStep/<spoonNumber:\d+>', handler=CheckInSpoonStep, name='CheckInSpoonStepForm'),
                 webapp2.Route('/makeMySpoonTravel', handler=MakeMySpoonTravel, name='makeMySpoonTravel'),
                 webapp2.Route('/spoonImage', handler=SpoonImage, name='spoonImage'),
                 webapp2.Route('/spoonStepImage', handler=SpoonStepImage, name='spoonStepImage'),
